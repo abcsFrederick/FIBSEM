@@ -10,11 +10,11 @@
   ```sh
   export FIBSEM=$PWD
   ```
-3. Give an image name:
+2. Give an **lowercase** image name:
   ```sh
-  export imageName=test
+  export imageName=fibsem
   ```
-4. Build image:
+3. Build image:
   ```sh
   docker build -t $imageName .
   ```
