@@ -3,7 +3,7 @@
 ***CMM requested software infrastructure support from ABCS to develop a run time augmentation system for high resolution FIBSEM imaging. In responding to the CMM request, ABCS proposes two solutions as described in this document.***
 
 #### Download docker image:
-    https://github.com/abcsFrederick/FIBSEM.git
+    git clone https://github.com/abcsFrederick/FIBSEM.git
 
 #### Build docker image:
 1. Go to 'FIBSEM' directory and export FIBSEM
@@ -24,10 +24,10 @@
   export taskName=test
   ```
   For test purpose the **test** module will just process an image and output a 128 x 128 thumbnail of it.
-  
+
 2. Run docker image
   ```sh
-  docker run -it -v $FIBSEM/snapshot:/snapshot \
+  docker run -id -v $FIBSEM/snapshot:/snapshot \
   -v $FIBSEM/repo:/repo -v $FIBSEM/dataset/input:/input \
   -v $FIBSEM/dataset/output:/output  -e module=$taskName \
   $imageName
