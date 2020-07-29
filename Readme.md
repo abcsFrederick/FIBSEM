@@ -23,6 +23,8 @@
   ```sh
   export taskName=test
   ```
+  For test purpose the **test** module will just process an image and output a 128 x 128 thumbnail of it.
+  
 2. Run docker image
   ```sh
   docker run -it -v $FIBSEM/snapshot:/snapshot \
@@ -30,5 +32,7 @@
   -v $FIBSEM/dataset/output:/output  -e module=$taskName \
   $imageName
   ```
+3. Whenever put new image to the **dataset/input** directory, it will automatically generate output image into the **dataset/output** directory.
+
 #### New module rules:
 Create python module and put it under **repo** directory, name entry point as a function named **run**.
