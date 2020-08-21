@@ -1,6 +1,8 @@
 # FIBSEM
 
-***CMM requested software infrastructure support from ABCS to develop a run time augmentation system for high resolution FIBSEM imaging. In responding to the CMM request, ABCS proposes two solutions as described in this document.***
+***CMM requested software infrastructure support from ABCS to develop a run time augmentation system for high resolution FIBSEM imaging. In responding to the CMM request, ABCS proposes a solution as described below:***
+
+A docker container has been designed to run imaging algorithms as needed.  The container  bundles multiple algorithms together with a method to execute the algorithms automatically.  Each algorithm is contained in a single python script file in the repo/ directory.  The container automatically watches for new images in the input directory.  Whenever a new image is added, the selected algorithm (see the taskName below) is run on the image and the output is written to the selected output directory.  
 
 #### Download docker image:
     git clone https://github.com/abcsFrederick/FIBSEM.git
@@ -19,11 +21,16 @@
   docker build -t $imageName .
   ```
 #### Docker run task:
-1. Give an module name that exist under **repo** directory
+1. Select a module name that exist under **repo** directory
   ```sh
   export taskName=test
   ```
-  For test purpose the **test** module will just process an image and output a 128 x 128 thumbnail of it.
+  or
+    ```sh
+  export taskName=threshold
+  ```
+  For test purpose the **test** module will just process an image and output a 128 x 128 thumbnail of it.  The **threshold** algorithm processes single channel SEM images to remove
+  background values (replacing the background with black).
 
 2. Run docker image
   ```sh
