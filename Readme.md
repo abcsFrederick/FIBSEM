@@ -26,7 +26,7 @@ A docker container has been designed to run imaging algorithms as needed.  The c
   export taskName=test
   ```
   or
-    ```sh
+  ```sh
   export taskName=threshold
   ```
   For test purpose the **test** module will just process an image and output a 128 x 128 thumbnail of it.  The **threshold** algorithm processes single channel SEM images to remove
