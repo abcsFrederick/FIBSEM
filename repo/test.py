@@ -8,6 +8,6 @@ def run(file, inputMount, outputMount):
   try:
     with Image.open(inputPath) as im:
       im.thumbnail(size)
-      im.save(outputPath, "JPEG")
+      im.save(outputPath)
   except OSError:
     print("cannot create thumbnail for", file)
