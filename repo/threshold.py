@@ -28,6 +28,6 @@ def run(file, inputMount, outputMount):
       flip_im = np.flip(rot_im,1)
       # convert back to image and save as TIFF
       out_image = Image.fromarray(flip_im)
-      out_image.save(outputPath, "TIFF")
+      out_image.save(outputPath)
   except OSError:
       print("cannot create threshold image for", file)

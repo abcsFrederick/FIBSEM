@@ -29,12 +29,16 @@ A docker container has been designed to run imaging algorithms as needed.  The c
   ```sh
   export taskName=threshold
   ```
+    or
+  ```sh
+  export taskName=inference
+  ```
   For test purpose the **test** module will just process an image and output a 128 x 128 thumbnail of it.  The **threshold** algorithm processes single channel SEM images to remove
-  background values (replacing the background with black).
+  background values (replacing the background with black). The **inference** tasks performs forward inferencing using a UNET network to perform segmentation used a pre-trained network. 
 
 2. Run docker image
   ```sh
-  docker run -id -v $FIBSEM/snapshot:/snapshot \
+  docker run --gpu all -id -v $FIBSEM/snapshot:/snapshot \
   -v $FIBSEM/repo:/repo -v $FIBSEM/dataset/input:/input \
   -v $FIBSEM/dataset/output:/output  -e module=$taskName \
   $imageName
