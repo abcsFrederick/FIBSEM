@@ -38,7 +38,7 @@ A docker container has been designed to run imaging algorithms as needed.  The c
 
 2. Run docker image
   ```sh
-  docker run --gpu all -id -v $FIBSEM/snapshot:/snapshot \
+  docker run --gpus all -id -v $FIBSEM/snapshot:/snapshot \
   -v $FIBSEM/repo:/repo -v $FIBSEM/dataset/input:/input \
   -v $FIBSEM/dataset/output:/output  -e module=$taskName \
   $imageName

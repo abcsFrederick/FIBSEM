@@ -16,7 +16,7 @@ if [ -f "/repo/$1.py" ]; then
   [[ -f  .dirlist.old ]] && {
     comm -13 <(sort .dirlist.old) <(sort .dirlist.new) |
     while read -r file; do
-      python3 /tmp/script.py "-m $1" "-i /input" "-o /output" "${file}"
+      python3 /tmp/script.py "-m $1" "-i /input" "-o /output" ${file}
     done
   }
   mv .dirlist.new .dirlist.old  
