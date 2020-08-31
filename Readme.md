@@ -29,7 +29,7 @@ A docker container has been designed to run imaging algorithms as needed.  The c
   ```sh
   export taskName=threshold
   ```
-    or
+  or
   ```sh
   export taskName=inference
   ```
